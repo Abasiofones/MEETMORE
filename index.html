@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetMore - Skip the DMs. Monetize Your Time 1-on-1</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            lavender: '#f3e8ff',  /* Soft Lavender Page BG */
+                            pink: '#ec4899',      /* Hot Pink */
+                            violet: '#8b5cf6',    /* Electric Violet */
+                            cyan: '#06b6d4',      /* Bright Cyan */
+                            lime: '#84cc16',      /* Lime Green */
+                            yellow: '#eab308',    /* Solar Yellow */
+                            orange: '#f97316',    /* Tangerine Orange */
+                            dark: '#0f172a'
+                        }
+                    },
+                    boxShadow: {
+                        'brutal-sm': '3px 3px 0px 0px #000000',
+                        'brutal': '5px 5px 0px 0px #000000',
+                        'brutal-lg': '8px 8px 0px 0px #000000',
+                        'brutal-xl': '12px 12px 0px 0px #000000'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f5f3ff;
+            color: #000000;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .brutal-border {
+            border: 3px solid #000000;
+        }
+
+        .brutal-border-lg {
+            border: 4px solid #000000;
+        }
+
+        .brutal-border-sm {
+            border: 2px solid #000000;
+        }
+
+        .brutal-card {
+            border: 3.5px solid #000000;
+            box-shadow: 6px 6px 0px 0px #000000;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .brutal-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px 0px #000000;
+        }
+
+        .brutal-button {
+            border: 3.5px solid #000000;
+            box-shadow: 5px 5px 0px 0px #000000;
+            transition: all 0.12s ease-in-out;
+            font-weight: 800;
+        }
+
+        .brutal-button:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0px 0px #000000;
+        }
+
+        .brutal-button:active {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0px 0px #000000;
+        }
+
+        .role-pill {
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .role-pill.active {
+            background-color: #8b5cf6;
+            color: #ffffff;
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+
+        /* Pulse badge animation */
+        @keyframes pulse-fast {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .pulse-badge {
+            animation: pulse-fast 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-brand-pink selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-white brutal-border border-l-0 border-r-0 border-t-0 px-4 sm:px-8 py-3.5">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2.5 font-black text-2xl sm:text-3xl tracking-tight">
+                <span class="bg-brand-lime brutal-border-sm px-2.5 py-0.5 text-black shadow-brutal-sm rounded-md font-extrabold">M</span>
+                <span>MeetMore<span class="text-brand-pink">.</span></span>
+            </a>
+
+            <div class="flex items-center gap-3">
+                <span class="hidden md:inline-flex items-center gap-1.5 text-xs font-black bg-brand-yellow brutal-border-sm px-3 py-1.5 rounded-md shadow-brutal-sm uppercase tracking-wide">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+                    Beta Access Opening Soon
+                </span>
+
+                <a href="#waitlist-section" class="bg-brand-pink text-white px-5 py-2.5 brutal-button text-sm rounded-md hover:bg-pink-600">
+                    Join Waitlist
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <section class="max-w-7xl mx-auto px-4 sm:px-8 pt-10 sm:pt-16 pb-16 sm:pb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                <!-- Hero Left Column -->
+                <div class="lg:col-span-7 space-y-7">
+                    
+                    <div class="inline-flex items-center gap-2 bg-brand-lime brutal-border-sm px-4 py-2 text-xs font-black tracking-wider uppercase rounded-md shadow-brutal-sm pulse-badge">
+                        <i data-lucide="zap" class="w-4 h-4 text-black"></i>
+                        <span>🚀 MeetMore Public Beta Waitlist</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight">
+                        Skip the DMs.<br/>
+                        <span class="bg-brand-yellow text-black px-3 py-1 brutal-border inline-block mt-2 rounded-lg shadow-brutal">
+                            Monetize Your Time 1-on-1.
+                        </span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl font-bold text-gray-900 max-w-2xl leading-relaxed">
+                        The high-converting booking platform for creators, founders, and experts to host 1:1 video calls with their audience.
+                    </p>
+
+                    <!-- Waitlist Form Container -->
+                    <div id="waitlist-section" class="pt-2">
+                        <div id="hero-form-box" class="bg-white brutal-card p-6 sm:p-8 rounded-xl">
+                            
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl sm:text-2xl font-black flex items-center gap-2">
+                                    <span>Get Priority Access</span>
+                                    <span class="bg-brand-cyan text-black text-xs px-2.5 py-1 brutal-border-sm rounded-md font-extrabold uppercase">Free VIP</span>
+                                </h3>
+                                <i data-lucide="sparkles" class="w-6 h-6 text-brand-pink"></i>
+                            </div>
+
+                            <!-- Role Toggle Selector -->
+                            <div class="mb-5">
+                                <label class="block text-xs font-black uppercase tracking-wider text-gray-700 mb-2">I am joining as:</label>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <button type="button" id="role-creator" onclick="selectRole('creator')" class="role-pill active brutal-border-sm p-3 font-extrabold text-sm text-center rounded-lg">
+                                        ✨ Creator / Expert
+                                    </button>
+                                    <button type="button" id="role-audience" onclick="selectRole('audience')" class="role-pill brutal-border-sm p-3 font-extrabold text-sm text-center bg-white text-black rounded-lg">
+                                        👥 Audience Member
+                                    </button>
+                                </div>
+                            </div>
+
+                            <form onsubmit="handleWaitlistSubmit(event, 'hero')" class="space-y-4">
+                                <input type="hidden" id="user-role" value="creator">
+                                <div class="flex flex-col sm:flex-row gap-3">
+                                    <input 
+                                        type="email" 
+                                        id="hero-email" 
+                                        placeholder="Enter your primary email address..." 
+                                        required
+                                        class="flex-grow bg-brand-lavender brutal-border-sm p-4 font-bold text-black placeholder:text-gray-500 focus:outline-none focus:ring-4 focus:ring-brand-pink rounded-lg transition-all"
+                                    />
+                                    <button 
+                                        type="submit" 
+                                        class="bg-brand-pink text-white font-black px-8 py-4 brutal-button whitespace-nowrap hover:bg-pink-600 rounded-lg flex items-center justify-center gap-2 text-base">
+                                        <span>Get Early Access</span>
+                                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                    </button>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs font-extrabold text-gray-600">
+                                    <i data-lucide="shield-check" class="w-4 h-4 text-brand-lime"></i>
+                                    <span>Zero spam. Direct early access invitation link upon release.</span>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Success Confirmation Box (Hidden initially) -->
+                        <div id="hero-success-box" class="hidden bg-brand-lime brutal-card p-8 rounded-xl text-black">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center font-black text-xl brutal-border-sm">✓</div>
+                                <div>
+                                    <h4 class="font-black text-2xl">You're #1,281 on the list!</h4>
+                                    <p class="font-bold text-xs uppercase tracking-wider text-black/80">VIP Early Access Confirmed</p>
+                                </div>
+                            </div>
+                            <p class="font-extrabold text-gray-900 text-base mb-4">
+                                Thanks for signing up as a <span id="saved-role-display" class="bg-black text-white px-2 py-0.5 rounded">Creator / Expert</span>. We will notify you the moment your invite token activates.
+                            </p>
+
+                            <!-- Referral Link Box -->
+                            <div class="bg-white p-4 brutal-border-sm rounded-lg flex flex-col sm:flex-row items-center justify-between gap-3">
+                                <div class="text-xs font-black truncate w-full sm:w-auto">
+                                    <span class="text-gray-500 uppercase block text-[10px]">Your Referral Invite Link:</span>
+                                    <span id="referral-link-text" class="text-brand-violet underline">https://meetmore.app/invite?ref=vip1281</span>
+                                </div>
+                                <button type="button" onclick="copyReferralLink()" class="w-full sm:w-auto bg-brand-yellow text-black px-4 py-2 brutal-button text-xs font-black rounded-md whitespace-nowrap flex items-center justify-center gap-1.5">
+                                    <i data-lucide="copy" class="w-4 h-4"></i>
+                                    <span id="copy-btn-label">Copy Invite Link</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Proof Counter Badge -->
+                    <div class="flex flex-wrap items-center gap-4 bg-white brutal-card p-4 rounded-xl inline-flex">
+                        <div class="flex -space-x-3 overflow-hidden">
+                            <div class="inline-block h-10 w-10 rounded-full brutal-border-sm bg-brand-pink flex items-center justify-center font-black text-xs text-white">AR</div>
+                            <div class="inline-block h-10 w-10 rounded-full brutal-border-sm bg-brand-lime flex items-center justify-center font-black text-xs text-black">KC</div>
+                            <div class="inline-block h-10 w-10 rounded-full brutal-border-sm bg-brand-cyan flex items-center justify-center font-black text-xs text-black">MV</div>
+                            <div class="inline-block h-10 w-10 rounded-full brutal-border-sm bg-brand-yellow flex items-center justify-center font-black text-xs text-black">JD</div>
+                        </div>
+                        <div class="text-sm font-bold">
+                            <span class="font-black text-brand-violet text-base">1,280+</span> creators, founders & audience members already waiting
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    
+                    <!-- Decorative Background Pill -->
+                    <div class="absolute -top-4 -right-4 bg-brand-cyan brutal-border-sm px-4 py-2 font-black text-xs uppercase shadow-brutal rounded-md rotate-3 z-10">
+                        ⚡ meet.more/daria
+                    </div>
+
+                    <div class="bg-white brutal-card p-6 sm:p-8 space-y-6 rounded-2xl relative">
+                        
+                        <!-- Profile Header -->
+                        <div class="flex items-start justify-between border-b-3 border-black pb-5">
+                            <div class="flex gap-4 items-center">
+                                <div class="w-16 h-16 bg-brand-pink brutal-border rounded-full flex items-center justify-center font-black text-2xl text-white shadow-brutal-sm">
+                                    DR
+                                </div>
+                                <div>
+                                    <h3 class="font-black text-xl flex items-center gap-1.5">
+                                        <span>Daria Romanova</span>
+                                        <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-lime fill-black"></i>
+                                    </h3>
+                                    <p class="text-xs font-extrabold text-gray-700">Product Strategy & AI Growth</p>
+                                </div>
+                            </div>
+                            <span class="bg-brand-lime text-black brutal-border-sm px-2.5 py-1 text-xs font-black rounded-md">
+                                AVAILABLE
+                            </span>
+                        </div>
+
+                        <!-- Session Info Box -->
+                        <div class="bg-brand-lavender p-4 brutal-border-sm rounded-xl space-y-2">
+                            <div class="flex justify-between items-center font-black text-sm">
+                                <span>1-on-1 Strategy & Audit Call</span>
+                                <span class="bg-brand-yellow text-black brutal-border-sm px-2.5 py-1 text-xs font-black rounded">
+                                    $150 / 30m
+                                </span>
+                            </div>
+                            <p class="text-xs font-bold text-gray-700 leading-relaxed">
+                                Book a direct video call with me to review your product roadmap, pricing strategy, or design architecture.
+                            </p>
+                        </div>
+
+                        <!-- Slot Picker Simulation -->
+                        <div class="space-y-2.5">
+                            <div class="flex justify-between items-center text-xs font-black uppercase text-gray-700">
+                                <span>Open Slots This Week</span>
+                                <span class="text-brand-violet text-[11px]">Instant Confirmation</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <div class="bg-brand-cyan text-black brutal-border-sm p-3 text-center text-xs font-black rounded-lg cursor-pointer shadow-brutal-sm">
+                                    Thu, 3:00 PM EST
+                                </div>
+                                <div class="bg-white brutal-border-sm p-3 text-center text-xs font-black rounded-lg cursor-pointer hover:bg-brand-lavender">
+                                    Thu, 4:30 PM EST
+                                </div>
+                                <div class="bg-white brutal-border-sm p-3 text-center text-xs font-black rounded-lg cursor-pointer hover:bg-brand-lavender">
+                                    Fri, 1:00 PM EST
+                                </div>
+                                <div class="bg-white brutal-border-sm p-3 text-center text-xs font-black rounded-lg cursor-pointer hover:bg-brand-lavender">
+                                    Fri, 5:30 PM EST
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Button Mock -->
+                        <button type="button" class="w-full bg-black text-white p-4 brutal-button text-sm font-black flex items-center justify-center gap-2 rounded-xl">
+                            <span>Request 30-Min Session</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-brand-lime"></i>
+                        </button>
+
+                        <div class="flex items-center justify-center gap-2 text-[11px] font-black text-gray-600">
+                            <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-violet"></i>
+                            <span>Pre-authorized hold. Zero charge if declined.</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="bg-white brutal-border border-l-0 border-r-0 py-20 px-4 sm:px-8">
+            <div class="max-w-7xl mx-auto space-y-14">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <span class="bg-brand-pink text-white brutal-border-sm px-4 py-1.5 text-xs font-black uppercase tracking-wider rounded-md shadow-brutal-sm">
+                        Built for Modern Creators
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-black tracking-tight">
+                        Why standard booking tools fall short
+                    </h2>
+                    <p class="text-base sm:text-lg font-bold text-gray-800">
+                        Generic calendar schedulers were made for internal office meetings. MeetMore is engineered specifically for high-value 1-on-1 expert monetization.
+                    </p>
+                </div>
+
+                <!-- 4 Vibrant Multi-Color Feature Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Card 1: Lime Green -->
+                    <div class="bg-brand-lime brutal-card p-7 rounded-2xl flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="w-14 h-14 bg-white brutal-border-sm rounded-xl flex items-center justify-center shadow-brutal-sm">
+                                <i data-lucide="calendar-range" class="w-7 h-7 text-black"></i>
+                            </div>
+                            <span class="inline-block bg-black text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded">01 / Schedule</span>
+                            <h3 class="text-2xl font-black text-black leading-tight">Complete Schedule Control</h3>
+                            <p class="text-sm font-bold text-gray-900 leading-relaxed">
+                                Creators choose any time blocks they are free, and their audience picks from those exact windows. No messy open-ended calendar syncing.
+                            </p>
+                        </div>
+                        <div class="pt-2">
+                            <span class="text-xs font-black text-black underline flex items-center gap-1">
+                                <span>Zero inbox clutter</span> →
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Hot Pink -->
+                    <div class="bg-brand-pink text-white brutal-card p-7 rounded-2xl flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="w-14 h-14 bg-white text-black brutal-border-sm rounded-xl flex items-center justify-center shadow-brutal-sm">
+                                <i data-lucide="link" class="w-7 h-7 text-brand-pink"></i>
+                            </div>
+                            <span class="inline-block bg-white text-black text-[10px] font-black uppercase px-2.5 py-0.5 rounded">02 / Bio-Link</span>
+                            <h3 class="text-2xl font-black text-white leading-tight">Bio-Link Ready Mini Page</h3>
+                            <p class="text-sm font-extrabold text-pink-100 leading-relaxed">
+                                Get your own high-converting mini landing page at <span class="bg-black text-brand-lime px-1.5 py-0.5 rounded font-mono text-xs">meet.more/yourname</span> to drop straight into your Twitter/X, Instagram, or YouTube bio.
+                            </p>
+                        </div>
+                        <div class="pt-2">
+                            <span class="text-xs font-black text-white underline flex items-center gap-1">
+                                <span>Custom brand URL</span> →
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Bright Cyan -->
+                    <div class="bg-brand-cyan brutal-card p-7 rounded-2xl flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="w-14 h-14 bg-white text-black brutal-border-sm rounded-xl flex items-center justify-center shadow-brutal-sm">
+                                <i data-lucide="file-text" class="w-7 h-7 text-brand-cyan"></i>
+                            </div>
+                            <span class="inline-block bg-black text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded">03 / AI Insights</span>
+                            <h3 class="text-2xl font-black text-black leading-tight">AI Meeting Summaries</h3>
+                            <p class="text-sm font-bold text-gray-900 leading-relaxed">
+                                Opt-in AI audio transcription generates an instant bullet-point action list & recording link for both audience and creator right after the call ends.
+                            </p>
+                        </div>
+                        <div class="pt-2">
+                            <span class="text-xs font-black text-black underline flex items-center gap-1">
+                                <span>Automated notes</span> →
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Solar Yellow -->
+                    <div class="bg-brand-yellow brutal-card p-7 rounded-2xl flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="w-14 h-14 bg-white text-black brutal-border-sm rounded-xl flex items-center justify-center shadow-brutal-sm">
+                                <i data-lucide="coins" class="w-7 h-7 text-black"></i>
+                            </div>
+                            <span class="inline-block bg-black text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded">04 / Monetize</span>
+                            <h3 class="text-2xl font-black text-black leading-tight">Monetize Your Time</h3>
+                            <p class="text-sm font-bold text-gray-900 leading-relaxed">
+                                Set your own rates per session or minute. Effortlessly monetize your knowledge and turn endless unpaid DM advice requests into real income.
+                            </p>
+                        </div>
+                        <div class="pt-2">
+                            <span class="text-xs font-black text-black underline flex items-center gap-1">
+                                <span>Turn DMs into revenue</span> →
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-4 sm:px-8 py-20 space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="bg-brand-violet text-white brutal-border-sm px-3.5 py-1 text-xs font-black uppercase tracking-wider rounded-md">
+                    Seamless Experience
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight">
+                    Tailored for creators & their audience
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                
+                <!-- For Creators (Violet Card) -->
+                <div class="bg-brand-violet text-white brutal-card p-8 sm:p-10 space-y-8 rounded-2xl">
+                    <div class="flex items-center justify-between border-b-2 border-white/30 pb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-black text-white brutal-border-sm rounded-xl flex items-center justify-center">
+                                <i data-lucide="crown" class="w-6 h-6 text-brand-yellow"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl sm:text-3xl font-black">For Creators & Experts</h3>
+                                <p class="text-xs font-bold text-purple-200 uppercase tracking-wider">Monetize Knowledge</p>
+                            </div>
+                        </div>
+                        <span class="bg-brand-lime text-black font-black text-xs px-3 py-1 brutal-border-sm rounded">HOST</span>
+                    </div>
+
+                    <ul class="space-y-4 font-bold text-purple-100 text-base">
+                        <li class="flex items-start gap-3">
+                            <div class="bg-black text-brand-lime rounded-full p-1 mt-0.5 brutal-border-sm">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            <span>Set your own rate per session, pick free hours, and drop your <span class="text-brand-lime font-mono">meet.more</span> link in bio.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="bg-black text-brand-lime rounded-full p-1 mt-0.5 brutal-border-sm">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            <span>Approve or decline call topics before accepting session requests.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="bg-black text-brand-lime rounded-full p-1 mt-0.5 brutal-border-sm">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            <span>Guaranteed payouts directly into your bank account via automated Stripe Connect.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- For Audience (Tangerine Card) -->
+                <div class="bg-brand-orange text-white brutal-card p-8 sm:p-10 space-y-8 rounded-2xl">
+                    <div class="flex items-center justify-between border-b-2 border-white/30 pb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-black text-white brutal-border-sm rounded-xl flex items-center justify-center">
+                                <i data-lucide="users" class="w-6 h-6 text-brand-cyan"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl sm:text-3xl font-black">For Your Audience</h3>
+                                <p class="text-xs font-bold text-orange-200 uppercase tracking-wider">Direct Access</p>
+                            </div>
+                        </div>
+                        <span class="bg-brand-yellow text-black font-black text-xs px-3 py-1 brutal-border-sm rounded">GUEST</span>
+                    </div>
+
+                    <ul class="space-y-4 font-bold text-orange-100 text-base">
+                        <li class="flex items-start gap-3">
+                            <div class="bg-black text-brand-yellow rounded-full p-1 mt-0.5 brutal-border-sm">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            <span>Book direct 1-on-1 access with founders, advisors, and creators you follow.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="bg-black text-brand-yellow rounded-full p-1 mt-0.5 brutal-border-sm">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            <span>Get tailored advice, portfolio reviews, or business consulting without gatekeeping.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="bg-black text-brand-yellow rounded-full p-1 mt-0.5 brutal-border-sm">
+                                <i data-lucide="check" class="w-4 h-4"></i>
+                            </div>
+                            <span>Receive instant AI session action items and HD recordings right after the call.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="border-t-4 border-black bg-brand-pink py-20 px-4 sm:px-8 text-white">
+            <div class="max-w-4xl mx-auto text-center space-y-8">
+                
+                <div class="inline-block bg-black text-brand-lime brutal-border-sm px-4 py-1.5 text-xs font-black uppercase tracking-wider rounded-md shadow-brutal-sm">
+                    ⚡ Early VIP Access
+                </div>
+
+                <h2 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                    Ready to skip the DMs and connect?
+                </h2>
+                
+                <p class="text-lg sm:text-xl font-black text-yellow-200 max-w-2xl mx-auto leading-relaxed">
+                    Join 1,280+ creators, founders, and audience members getting early access to the platform.
+                </p>
+
+                <!-- Footer Waitlist Form -->
+                <div class="max-w-xl mx-auto bg-white text-black brutal-card p-6 sm:p-8 rounded-2xl">
+                    <form onsubmit="handleWaitlistSubmit(event, 'footer')" class="space-y-4">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input 
+                                type="email" 
+                                id="footer-email" 
+                                placeholder="Enter your email for early invite..." 
+                                required
+                                class="flex-grow bg-brand-lavender brutal-border-sm p-4 font-bold text-black placeholder:text-gray-500 focus:outline-none focus:ring-4 focus:ring-brand-violet rounded-lg"
+                            />
+                            <button 
+                                type="submit" 
+                                class="bg-brand-yellow text-black font-black px-8 py-4 brutal-button whitespace-nowrap hover:bg-yellow-400 rounded-lg flex items-center justify-center gap-2 text-base">
+                                <span>Reserve Spot</span>
+                                <i data-lucide="sparkles" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Footer Success State -->
+                    <div id="footer-success-box" class="hidden text-left bg-brand-lime p-4 brutal-border-sm rounded-xl text-black font-black text-sm">
+                        🎉 VIP spot confirmed! Check your inbox for launch updates.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white brutal-border border-l-0 border-r-0 border-b-0 py-8 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            <div class="flex items-center gap-2 font-black text-2xl tracking-tight">
+                <span class="bg-brand-lime brutal-border-sm px-2 py-0.5 text-xs text-black">M</span>
+                <span>MeetMore<span class="text-brand-pink">.</span></span>
+            </div>
+
+            <p class="text-xs font-bold text-gray-700">
+                © 2026 MeetMore Inc. Built for creators, advisors, and their audience.
+            </p>
+
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Role Selection Switcher
+        function selectRole(role) {
+            document.getElementById('user-role').value = role;
+            const creatorBtn = document.getElementById('role-creator');
+            const audienceBtn = document.getElementById('role-audience');
+
+            if (role === 'creator') {
+                creatorBtn.className = "role-pill active brutal-border-sm p-3 font-extrabold text-sm text-center rounded-lg";
+                audienceBtn.className = "role-pill brutal-border-sm p-3 font-extrabold text-sm text-center bg-white text-black rounded-lg";
+            } else {
+                audienceBtn.className = "role-pill active brutal-border-sm p-3 font-extrabold text-sm text-center rounded-lg";
+                creatorBtn.className = "role-pill brutal-border-sm p-3 font-extrabold text-sm text-center bg-white text-black rounded-lg";
+            }
+        }
+
+        // Form Submission Handler
+        function handleWaitlistSubmit(event, source) {
+            event.preventDefault();
+            
+            if (source === 'hero') {
+                const email = document.getElementById('hero-email').value;
+                const role = document.getElementById('user-role').value;
+
+                if (email) {
+                    document.getElementById('hero-form-box').classList.add('hidden');
+                    
+                    const roleDisplay = document.getElementById('saved-role-display');
+                    roleDisplay.innerText = role === 'creator' ? 'Creator / Expert' : 'Audience Member';
+                    
+                    document.getElementById('hero-success-box').classList.remove('hidden');
+                }
+            } else if (source === 'footer') {
+                const email = document.getElementById('footer-email').value;
+                if (email) {
+                    document.getElementById('footer-email').value = '';
+                    document.getElementById('footer-success-box').classList.remove('hidden');
+                }
+            }
+        }
+
+        // Copy Referral Link Handler with execCommand Fallback
+        function copyReferralLink() {
+            const referralText = "https://meetmore.app/invite?ref=vip1281";
+            
+            // Temporary input for copy fallback
+            const tempInput = document.createElement("input");
+            tempInput.value = referralText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            const btnLabel = document.getElementById('copy-btn-label');
+            btnLabel.innerText = "Copied to Clipboard! ✓";
+            
+            setTimeout(() => {
+                btnLabel.innerText = "Copy Invite Link";
+            }, 3000);
+        }
+    </script>
+    <script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzc189RsXYssqEYbviktG6eJvbVOen3nh9p2Qap6BBeouALorV_O-_DgEdkaIYdrnj4/exec';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const emailInput = form.querySelector('input[type="email"]');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const activeRoleBtn = document.querySelector('.role-btn.active');
+      const role = activeRoleBtn ? activeRoleBtn.innerText.trim() : 'Creator / Expert';
+
+      if (!emailInput || !emailInput.value) return;
+
+      const originalText = submitBtn.innerText;
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Joining Waitlist...';
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: emailInput.value,
+            role: role
+          })
+        });
+
+        // Success feedback
+        submitBtn.innerText = "You're on the list! 🎉";
+        submitBtn.style.backgroundColor = '#a7f3d0';
+        emailInput.value = '';
+      } catch (err) {
+        alert('Something went wrong. Please try again!');
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalText;
+      }
+    });
+  });
+</script>
+</body>
+</html>
